@@ -55,11 +55,11 @@ export default function InputField() {
   }
 
   return (
-    <div className="space-y-2 w-2/5">
-      <p></p>
+    <div className="space-y-2 w-full flex justify-center items-center">
+      {/* <h2>tiotle</h2> */}
 
       <div
-        className="p-2 px-3 rounded-lg min-w-xs max-w-xl"
+        className="p-2 px-3 rounded-lg min-w-xs w-full"
         style={{ boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px" }}
       >
         <form onSubmit={handleSubmit(onSubmit)}>

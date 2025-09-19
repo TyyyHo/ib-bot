@@ -30,7 +30,9 @@ export default function RootLayout({
       >
         <Sidebar />
 
-        <main className="flex-1 overflow-auto p-4">{children}</main>
+        <main className="flex-1 overflow-auto p-4 flex items-center justify-center">
+          {children}
+        </main>
       </body>
     </html>
   );
