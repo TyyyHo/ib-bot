@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { AiOutlinePaperClip, AiOutlinePlus } from "react-icons/ai";
+import { AiOutlinePaperClip } from "react-icons/ai";
 import { z } from "zod";
 
 const fileSchema = z
@@ -43,9 +43,9 @@ export default function InputField() {
   console.log(errors);
   const { ref: fileRef, ...rest } = register("file");
 
-  function handleAddSource() {
-    sourceRef.current?.click();
-  }
+  // function handleAddSource() {
+  //   sourceRef.current?.click();
+  // }
   function handleAddFile() {
     console.log("handleAddFile");
     fileInputRef.current?.click();
