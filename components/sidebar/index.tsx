@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 import {
   AiOutlineHome,
@@ -10,17 +11,12 @@ import {
 export default function Sidebar() {
   return (
     <div className="h-full w-64 bg-neutral-100 p-4 space-y-4">
-      <Anchor
-        icon={<AiOutlineHome className="size-5" />}
-        text="Home"
-        href="/"
-      />
-      <Anchor
-        icon={<AiOutlineSolution className="size-5" />}
-        text="Guide"
-        disabled
-        href="/guide"
-      />
+      <div className="w-full flex items-center justify-center py-4">
+        <Image src="/images/logo.png" alt="logo" width={100} height={100} />
+      </div>
+
+      <Anchor icon={<AiOutlineHome className="size-5" />} text="Home" href="/" />
+      <Anchor icon={<AiOutlineSolution className="size-5" />} text="Guide" disabled href="/guide" />
       <Anchor
         icon={<AiOutlineFileSearch className="size-5" />}
         text="Files Search"
