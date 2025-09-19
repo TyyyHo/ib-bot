@@ -7,24 +7,26 @@ import { AiOutlinePaperClip } from "react-icons/ai";
 import { z } from "zod";
 
 const fileSchema = z
-  .instanceof(FileList, { message: "請選擇一個文件" })
-  // .refine((files) => files.length > 1, {
-  //   message: "請選擇一個文件",
-  // })
-  .refine(
-    (files) => {
-      if (!files[0]) return false;
-      return files[0].size <= 50 * 1024 * 1024;
+  .custom<FileList>(
+    (val) => {
+      // 如果沒有值，允許 optional
+      if (val == null) return true;
+      // 檢查 val 是否有 files 的屬性 (簡單判斷是否像 FileList)
+      if (!(val instanceof FileList)) return false;
+      // 檢查第一個文件大小
+      if (!val[0]) return false;
+      return val[0].size <= 50 * 1024 * 1024; // 50MB
     },
     {
-      message: "文件大小不能超過50MB",
+      message: "請選擇一個有效文件且大小不能超過50MB",
     }
-  );
+  )
+  .optional();
 
 const schema = z.object({
   text: z.string().min(1, "請輸入分析目標或方向"),
   // source: z.string().optional(),
-  file: fileSchema.optional(),
+  file: fileSchema,
 });
 
 /**
