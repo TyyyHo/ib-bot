@@ -11,6 +11,7 @@
     "precommit": "npm run lint && npm run typecheck"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "clsx": "^2.1.1",
     "next": "15.5.3",
     "react": "19.1.0",
