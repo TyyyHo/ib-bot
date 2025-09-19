@@ -31,7 +31,6 @@ const schema = z.object({
  * 三合一的輸入框，可以添加文字、來源網址、附檔
  */
 export default function InputField() {
-  const sourceRef = useRef<HTMLInputElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const {
